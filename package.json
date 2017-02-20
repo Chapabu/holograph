@@ -29,6 +29,8 @@
     "typings": "^2.1.0"
   },
   "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "pretest": "npm run lint",
     "test": "./node_modules/.bin/mocha --recursive"
   }
 }
