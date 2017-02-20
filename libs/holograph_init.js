@@ -16,7 +16,7 @@ function setupBuildDir(dir, assets, callback) {
             var fileName = path.basename(relPath);
             return (fileName[0] != '_');
         }
-    }
+    };
 
     rmdir(dir, function(err) {
         if (err) {

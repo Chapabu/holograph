@@ -1,5 +1,4 @@
 var expect = require('chai').expect;
-var fs = require('fs');
 var mock = require('mock-fs');
 var holo = require('../libs/holograph');
 

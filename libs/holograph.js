@@ -3,7 +3,6 @@
 
 var fs = require('fs');
 var mustache = require('mustache');
-var colors = require('colors');
 var marked = require('./markdown_renderer');
 var init = require('./holograph_init');
 
@@ -38,7 +37,7 @@ function extractPalette(source, config) {
             'title': palette,
             'colours': palettes[palette]
         });
-    };
+    }
 
     // create markup
     var content = mustache.render(template, {
@@ -54,6 +53,8 @@ function prepareCategories(results, config) {
     results.forEach(function(file) {
         var text = fs.readFileSync(file);
         var matches = [];
+        // ToDo: Fix this properly.
+        // eslint-disable-next-line no-cond-assign
         while (matches = doc.exec(text)) {
             var content = marked(matches[1]);
             if (!(pages.hasOwnProperty(content.meta.category))) {
@@ -115,7 +116,7 @@ function generatePage(config, page) {
     return {
         content: headerFooter(config, rawContent),
         blocks: blocks
-    }
+    };
 }
 
 function processFiles(results, config, cb) {
@@ -125,7 +126,7 @@ function processFiles(results, config, cb) {
     for (category in pages) {
         var page = category === config.index ? 'index' : category;
         if (pages.hasOwnProperty(category)) {
-            content = generatePage(config, pages[category])
+            content = generatePage(config, pages[category]);
             fs.writeFile(
                 config.destination + '/' + categoryLink(page),
                 mustache.render(
@@ -142,7 +143,7 @@ function processFiles(results, config, cb) {
     }
 
     if (!config.index) {
-        fs.stat(config.source + '/index.md', function(err, stats) {
+        fs.stat(config.source + '/index.md', function(err) {
             if (!err) {
                 fs.readFile(config.source + '/index.md', 'utf8', function(err, content) {
                     fs.writeFile(
@@ -155,7 +156,7 @@ function processFiles(results, config, cb) {
                                 categories: preparePageLinks('index', pages, config)
                             }
                         )
-                    )
+                    );
                 });
             }
         });
@@ -165,11 +166,7 @@ function processFiles(results, config, cb) {
 }
 
 function categoryLink(category) {
-    return category.replace(/[^\w\s]/gi, '').replace(/\s+/g, '-').toLowerCase() + '.html'
-}
-
-function maybeThrowError(err) {
-    if (err) { throw err; }
+    return category.replace(/[^\w\s]/gi, '').replace(/\s+/g, '-').toLowerCase() + '.html';
 }
 
 function holograph(config, callback) {

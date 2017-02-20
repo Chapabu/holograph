@@ -47,7 +47,7 @@ describe('Holograph', function() {
                     expect(err).to.be.null;
                     expect(stats.isDirectory()).to.be.true;
                     done();
-                })
+                });
             });
         });
 
@@ -80,7 +80,7 @@ describe('Holograph', function() {
         it('does not copy partials from documentation_assets into the destination', function(done) {
             init({ destination: './hologram', source: './src', documentation_assets: './assets'}, function(err) {
                 expect(err).to.be.null;
-                fs.lstat('./hologram/_header.html', function(err, stats) {
+                fs.lstat('./hologram/_header.html', function(err) {
                     expect(err.code).to.be.string('ENOENT');
                     done();
                 });
