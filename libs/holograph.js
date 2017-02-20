@@ -1,5 +1,4 @@
 'use strict';
-/*jslint node: true, stupid: true */
 
 var fs = require('fs');
 var mustache = require('mustache');
