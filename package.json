@@ -25,7 +25,7 @@
     "mocha": "^3.1.2",
     "mock-fs": "^3.9.0",
     "proxyquire": "^1.7.10",
-    "typings": "^2.0.0"
+    "typings": "^2.1.0"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --recursive"
