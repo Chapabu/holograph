@@ -4,9 +4,6 @@ scss
 css
 /holograph
 .sass-cache
-<<<<<<< HEAD
 typings
 jsconfig.json
-=======
-typings
->>>>>>> Added Typings for better code completion.
+*.log
