@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "bluebird": "^3.4.6",
+    "bluebird": "^3.4.7",
+    "byline": "^5.0.0",
     "colors": "^1.1.2",
     "dive": "^0.5.0",
     "eazy-logger": "^3.0.2",
@@ -22,6 +23,7 @@
   "name": "holograph",
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-deep-match": "^1.0.2",
     "eslint": "^3.15.0",
     "mocha": "^3.1.2",
     "mock-fs": "^3.9.0",
