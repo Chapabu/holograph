@@ -34,4 +34,4 @@ module.exports = {
   // (Default value is 'false')
   exit_on_warnings: false,
   global_title: 'Holograph stylesheet'
-}
+};

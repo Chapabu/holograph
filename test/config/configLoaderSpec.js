@@ -83,7 +83,7 @@ describe('configLoader', function () {
       // expect()
       const loaderFunc = function () {
         loader.load();
-      }
+      };
 
       expect(loaderFunc).to.throw(Error, 'No holograph configuration file found.');
 
@@ -107,12 +107,10 @@ describe('configLoader', function () {
   describe('promise loading', function () {
 
     let loader;
-    let config;
 
     afterEach(function () {
       mock.restore();
       loader = {};
-      config = {};
     });
 
     it('can load YAML config with a promise', function (done) {
@@ -156,7 +154,7 @@ describe('configLoader', function () {
       loader = new configLoader();
 
       loader.loadPromise()
-        .catch(function (err) {
+        .catch(function () {
           done();
         });
 

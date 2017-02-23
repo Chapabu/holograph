@@ -67,7 +67,7 @@ configLoader.prototype.loadPromise = function () {
  */
 configLoader.prototype.mergeDefaultConfig = function (loadedConfig) {
   return extend(this.defaultConfig, loadedConfig);
-}
+};
 
 /**
  * Load a JavaScript based configuration file.
@@ -122,6 +122,6 @@ configLoader.prototype.hasJSConfig = function () {
 
   return true;
 
-}
+};
 
 module.exports = configLoader;

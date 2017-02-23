@@ -11,4 +11,4 @@ module.exports = {
   index: 'basics',
   exit_on_warnings: false,
   global_title: 'Holograph stylesheet - JavaScript'
-}
+};
