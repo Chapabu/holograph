@@ -4,7 +4,7 @@ var rmdir = require('rimraf');
 var ncp = require('ncp').ncp;
 var path = require('path');
 var filterFiles = require('dive');
-
+var allowedExtension = require('./utils/allowedExtension');
 
 function setupBuildDir(dir, assets, callback) {
     var ncpOptions = {
@@ -57,13 +57,6 @@ function copyDependencies(dir, deps, cb) {
     }
 }
 
-function allowedExtension(config, file) {
-    var defaultExtensions = ['.css', '.scss', '.less', '.sass', '.styl', '.js', '.md', '.markdown'];
-    var extensions =  config.custom_extensions || defaultExtensions;
-
-    return extensions.indexOf(path.extname(file)) !== -1;
-}
-
 module.exports = function(config, callback) {
     var results = [];
     setupBuildDir(config.destination, config.documentation_assets, function(err) {
@@ -86,7 +79,7 @@ module.exports = function(config, callback) {
                         return callback(new Error(err.message));
                     }
 
-                    if (allowedExtension(config, file)) {
+                    if (allowedExtension(file, config)) {
                         results.push(file);
                     }
                 }, function() {
