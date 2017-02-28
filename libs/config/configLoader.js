@@ -75,7 +75,7 @@ configLoader.prototype.mergeDefaultConfig = function (loadedConfig) {
  * @returns {object} Holograph configuration loaded from a JavaScript file.
  */
 configLoader.prototype.loadJsConfig = function () {
-  return require('./holograph_config');
+  return require(process.cwd() + '/holograph_config');
 };
 
 /**
