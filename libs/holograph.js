@@ -4,6 +4,7 @@ var fs = require('fs');
 var mustache = require('mustache');
 var marked = require('./markdown_renderer');
 var init = require('./holograph_init');
+var headerFooter = require('./pageBuilder/headerFooter');
 
 function extractPalette(source, config) {
     try {
@@ -88,13 +89,6 @@ function preparePageLinks(current, pages, config) {
     }
 
     return links;
-}
-
-function headerFooter(config, content) {
-    var rawContent = fs.readFileSync(config.documentation_assets + '/_header.html', 'utf8');
-    rawContent += content;
-    rawContent += fs.readFileSync(config.documentation_assets +'/_footer.html', 'utf8');
-    return rawContent;
 }
 
 function generatePage(config, page) {
