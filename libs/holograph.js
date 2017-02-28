@@ -5,6 +5,7 @@ var mustache = require('mustache');
 var marked = require('./markdown_renderer');
 var init = require('./holograph_init');
 var headerFooter = require('./pageBuilder/headerFooter');
+var categoryLink = require('./utils/categoryLink');
 
 function extractPalette(source, config) {
     try {
@@ -156,10 +157,6 @@ function processFiles(results, config, cb) {
     }
 
     if (cb) cb();
-}
-
-function categoryLink(category) {
-    return category.replace(/[^\w\s]/gi, '').replace(/\s+/g, '-').toLowerCase() + '.html';
 }
 
 function holograph(config, callback) {
