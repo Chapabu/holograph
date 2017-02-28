@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs');
+const getDocumentationAsset = require('../utils/getDocumentationAsset');
 
 /**
  * Add a header and footer to a content snippet.
@@ -11,9 +11,9 @@ const fs = require('fs');
  * @returns {String} The provided content string surrounded by a header and footer.
  */
 function headerFooter(config, content) {
-  let rawContent = fs.readFileSync(config.documentation_assets + '/_header.html', 'utf8');
+  let rawContent = getDocumentationAsset(config, '_header.html');
   rawContent += content;
-  rawContent += fs.readFileSync(config.documentation_assets +'/_footer.html', 'utf8');
+  rawContent += getDocumentationAsset(config, '_footer.html');
   return rawContent;
 }
 

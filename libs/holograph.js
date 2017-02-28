@@ -6,13 +6,11 @@ var marked = require('./markdown_renderer');
 var init = require('./holograph_init');
 var headerFooter = require('./pageBuilder/headerFooter');
 var categoryLink = require('./utils/categoryLink');
+var getDocumentationAsset = require('./utils/getDocumentationAsset');
 
 function extractPalette(source, config) {
-    try {
-        var template = fs.readFileSync(config.documentation_assets + '/_swatches.html', 'utf8');
-    } catch (err) {
-        return;
-    }
+
+  var template = getDocumentationAsset(config, '_swatches.html');
 
     // fetch palettes
     var match;
