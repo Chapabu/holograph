@@ -124,7 +124,7 @@ describe('extractPalette', function () {
     expect(spy).to.have.been.calledWith(sinon.match.any, expectedSassPalettes);
   });
 
-it('extracts colours from STYL files', function () {
+  it('extracts colours from STYL files', function () {
     const sassFixture = loadFixture('palettes/colourPalette.styl');
     extractPalette(sassFixture, {});
     const expectedSassPalettes = {
