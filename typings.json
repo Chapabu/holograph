@@ -2,7 +2,6 @@
   "name": "holograph",
   "dependencies": {},
   "globalDependencies": {
-    "byline": "registry:dt/byline#4.2.1+20161119044246",
     "highlight.js": "registry:dt/highlight.js#9.1.0+20161227120821",
     "mustache": "registry:dt/mustache#0.8.2+20160510002910",
     "node/v4": "registry:dt/node/v4#4.2.0+20170209182724"

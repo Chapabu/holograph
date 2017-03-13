@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "bluebird": "^3.4.7",
-    "byline": "^5.0.0",
     "colors": "^1.1.2",
     "dive": "^0.5.0",
     "eazy-logger": "^3.0.2",
